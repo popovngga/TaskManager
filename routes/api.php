@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:sanctum'], function() {
+    Route::get('current',
+               [\App\Http\Controllers\SocialController::class, 'current']);
+    Route::get('logout',
+               [\App\Http\Controllers\SocialController::class, 'logout']);
+    Route::post('task/create',
+               [\App\Http\Controllers\TaskController::class, 'createTask']);
+    Route::patch('task/change/{id}',
+                [\App\Http\Controllers\TaskController::class, 'changeStatus']);
+
 });
