@@ -45,4 +45,9 @@ class SocialController extends Controller
     {
         return response()->json(auth()->user(), 200);
     }
+
+    public function users()
+    {
+        return response()->json(User::all()->except(Auth::id()), 200);
+    }
 }

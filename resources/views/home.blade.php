@@ -3,7 +3,13 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Tasks</a>
+            <a class="nav-link" href="#">Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Author tasks</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Executor tasks</a>
         </li>
         <li class="nav-item">
             <a class="nav-link logout-link" href="#">Logout</a>
@@ -13,6 +19,7 @@
         </li>
     </ul>
 </nav>
+@include('users')
 <!-- Form end -->
 <script src="/js/app.js"></script>
 <script>

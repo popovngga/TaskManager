@@ -19,9 +19,16 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
                [\App\Http\Controllers\SocialController::class, 'current']);
     Route::get('logout',
                [\App\Http\Controllers\SocialController::class, 'logout']);
+    Route::get('users',
+               [\App\Http\Controllers\SocialController::class, 'users']);
     Route::post('task/create',
                [\App\Http\Controllers\TaskController::class, 'createTask']);
     Route::patch('task/change/{id}',
                 [\App\Http\Controllers\TaskController::class, 'changeStatus']);
-
+    Route::group(['prefix' => 'tasks'], function() {
+        Route::get('author',
+                   [\App\Http\Controllers\TaskController::class, 'authorTasks']);
+        Route::get('executor',
+                   [\App\Http\Controllers\TaskController::class, 'executorTasks']);
+    });
 });
