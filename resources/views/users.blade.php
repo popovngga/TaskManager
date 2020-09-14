@@ -97,7 +97,6 @@
     e.preventDefault();
     let form = $(this);
     let serializedData = form.serialize();
-    console.log(serializedData)
     $.ajax({
       url: '/api/task/create',
       method: "POST",

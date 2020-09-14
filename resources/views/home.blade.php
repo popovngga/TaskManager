@@ -23,7 +23,12 @@
 <!-- Form end -->
 <script src="/js/app.js"></script>
 <script>
-    localStorage.setItem('token', "{{'Bearer '.$token}}")
+  window.history.pushState({}, document.title, "/home");
+  <?php if (isset($token)) { ?>
+    localStorage.setItem('token', "{{'Bearer '.$token}}");
+  <?php } ?>
+    !localStorage.getItem('token') ? $(location).attr('href', '/') : false;
+
     $.ajax({
         type: "GET",
         beforeSend: function(request) {

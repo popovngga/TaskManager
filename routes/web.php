@@ -22,3 +22,7 @@ Route::get('login/{provider}',
 Route::get('{provider}/callback',
            [\App\Http\Controllers\SocialController::class, 'callback']);
 
+Route::get('/home', function () {
+  return view('home');
+})->name('home');
+
