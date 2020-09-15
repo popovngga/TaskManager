@@ -20,12 +20,8 @@ class TaskService implements TaskServiceInterface
         $task = Task::findOrFail($id);
         $previousStatus = $task->status;
         $task->update($request->all());
-        $user = User::where('id', (int)$task->to_user_id)->first();
-        dispatch(new SendMessage(
-            $user,
-            $task,
-            $previousStatus
-        ));
+        $user = User::where('id', (int)$task->user_executor_id)->first();
+        dispatch(new SendMessage($user, $task, $previousStatus));
         return $task;
     }
 }

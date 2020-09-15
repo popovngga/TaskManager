@@ -26,7 +26,7 @@ class TaskRequest extends FormRequest
         return [
             'header' => 'required',
             'description' => 'required',
-            'to_user_id' => 'required',
+            'user_executor_id' => 'required',
             'status' => 'required',
             'deadline' => 'required',
             'comment' => 'nullable',

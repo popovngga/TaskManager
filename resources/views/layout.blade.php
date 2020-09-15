@@ -19,8 +19,34 @@
 
 
 </head>
+<style>
+    .p {
+        padding: 0 0 0 0 !important;
+        padding-top: 0 !important;
+        margin: 0 0 0 0 !important;
+        line-height: 2;
+        color: #6c757d !important;
+    }
+    .info-block {
+        margin-bottom: 5px;
+    }
+    .form-style {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .wrapper-style {
+        flex: 1 !important;
+    }
+    .input-fields {
+        margin-top: 5px;
+    }
+    .button-custom {
+        margin-top: 5px;
+    }
+</style>
 <body class="align-middle">
-        @yield('content')
+@yield('content')
 </body>
 <script src="/js/app.js"></script>
 </html>

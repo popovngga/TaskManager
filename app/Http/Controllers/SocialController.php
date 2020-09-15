@@ -26,7 +26,7 @@ class SocialController extends Controller
                 $user = User::create([
                     'name' => $userSocial->getName(),
                     'email' => $userSocial->getEmail(),
-                                         ]);
+                ]);
                 $token = $user->createToken($request->state)->plainTextToken;
                 return view('home', compact('token'));
             }
