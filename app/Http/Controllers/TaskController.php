@@ -19,7 +19,7 @@ class TaskController extends Controller
 
     /**
      * @OA\Patch(
-     *      path="/tasks/change/{id}",
+     *      path="/task/change/{id}",
      *      operationId="changeStatusOfTaskById",
      *      tags={"Tasks"},
      *      security={"Bearer"},
