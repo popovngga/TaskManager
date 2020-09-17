@@ -4,16 +4,15 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
+use Laravel\Sanctum\Sanctum;
 use Laravel\Socialite\Facades\Socialite;
 use Tests\TestCase;
 
-class AuthTest extends TestCase
+class UserTest extends TestCase
 {
-
+    use DatabaseMigrations;
     /**
      * @var string[]
      */
@@ -41,5 +40,33 @@ class AuthTest extends TestCase
         $loginResponse = $this->call('GET', route('login', ['provider' =>
                                                             'google']));
         $loginResponse->assertStatus(200);
+    }
+
+
+    public function testLogout()
+    {
+        Sanctum::actingAs(
+            User::factory()->create(),
+        );
+        $response = $this->get('/api/logout');
+        $response->assertStatus(200); // redirect
+    }
+
+    public function testGetCurrentUser()
+    {
+        Sanctum::actingAs(
+            User::factory()->create(),
+        );
+        $response = $this->get('/api/current');
+        $response->assertStatus(200);
+    }
+
+    public function testGetUsers()
+    {
+        Sanctum::actingAs(
+            User::factory()->create(),
+        );
+        $response = $this->get('/api/users');
+        $response->assertStatus(200);
     }
 }

@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('users',
-    [\App\Http\Controllers\SocialController::class, 'users']);
 Route::group(['middleware' => 'auth:sanctum'], function() {
+    Route::get('users',
+        [\App\Http\Controllers\SocialController::class, 'users']);
     Route::get('current',
                [\App\Http\Controllers\SocialController::class, 'current'])
         ->name('current');

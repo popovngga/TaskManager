@@ -104,7 +104,7 @@ trait TaskManagerTrait
 
     /**
      * @OA\Get(
-     *      path="/author",
+     *      path="/tasks/author",
      *      operationId="getAuthorTasks",
      *      tags={"Tasks"},
      *     security={"Bearer"},
@@ -129,7 +129,7 @@ trait TaskManagerTrait
 
     /**
      * @OA\Get(
-     *      path="/executor",
+     *      path="/tasks/executor",
      *      operationId="getExecutorTasks",
      *      tags={"Tasks"},
      *     security={"Bearer"},

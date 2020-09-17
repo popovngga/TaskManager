@@ -99,7 +99,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "scalar": "Bearer"
+                    }
+                ]
             }
         },
         "/tasks/change/{id}": {
@@ -250,7 +255,7 @@
                 ]
             }
         },
-        "/author": {
+        "/tasks/author": {
             "get": {
                 "tags": [
                     "Tasks"
@@ -280,7 +285,7 @@
                 ]
             }
         },
-        "/executor": {
+        "/tasks/executor": {
             "get": {
                 "tags": [
                     "Tasks"

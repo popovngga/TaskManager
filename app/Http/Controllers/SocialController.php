@@ -79,6 +79,7 @@ class SocialController extends Controller
      *      path="/users",
      *      operationId="getAllUsersExceptMe",
      *      tags={"Users"},
+     *      security={"Bearer"},
      *      summary="Get all users except me",
      *      description="Returns all users data",
      *     @OA\Response(
