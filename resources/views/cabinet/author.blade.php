@@ -15,21 +15,24 @@
                 $('.row-author').empty();
                 $.each(res, function (index, value) {
                     $('.row-author').append("<div class=\"col-md-4\">\n" +
-                        "        <div class=\"card mb-4 box-shadow\">\n" +
-                        "          <div class=\"card-body\">\n" +
+                        "        <div class=\"card mb-4 box-shadow changer-color\">\n" +
+                        "          <div class=\"card-body status-color-"+index+"\">\n" +
                         "            <div class=\"info-block\">\n" +
                         "              <p class=\"p\">Header: "+value.header+"</p>\n" +
-                        "              <small class=\"p\">Description: "+value.description+"</small>\n" +
+                        "              <p class=\"p\">Description: "+value.description+"</p>\n" +
+                        "              <small class=\"p\">Deadline: "+value.deadline+"</small>\n" +
+                        "              <br><small class=\"p append-after-"+index+"\">Current status: "+value.status+"</small>\n" +
+
                         "            </div>\n" +
-                        "            <div class=\"d-flex justify-content-between align-items-center\">\n" +
+                        "            <div class=\"d-flex changer-"+index+" justify-content-between align-items-center\">\n" +
                         "              <div class=\"wrapper-style\">\n" +
-                        "                  <form style=\"display: inline-flex\"class=\"accept-author\" method=\"PATCH\" action=\"api/task/change/"+value.id+"\">\n" +
+                        "                  <form style=\"display: inline-flex\" class=\"accept-author\" method=\"PATCH\" action=\"api/task/change/"+value.id+"\">\n" +
                         "                    <input name=\"status\" class=\"form-control form-control-sm input-fields\" type=\"text\" value=\"Accepted\" hidden>\n" +
-                        "                   <button type=\"submit\" class=\"complited btn btn-sm btn-outline-secondary\">Accepted</button>\n" +
+                        "                   <button type=\"submit\" class=\"complited btn btn-sm btn-outline-secondary\">Accept</button>\n" +
                         "                  </form>\n" +
-                        "                  <form style=\"display: inline-flex\"class=\"decline-author\" method=\"PATCH\" action=\"api/task/change/"+value.id+"\">\n" +
-                        "                    <input name=\"status\" class=\"form-control form-control-sm input-fields\" type=\"text\" value=\"Declined\"  hidden>\n" +
-                        "                   <button type=\"submit\" class=\"complited btn btn-sm btn-outline-secondary\">Declined</button>\n" +
+                        "                  <form style=\"display: inline-flex\" class=\"decline-author\" method=\"PATCH\" action=\"api/task/change/"+value.id+"\">\n" +
+                        "                    <input name=\"status\" class=\"form-control form-control-sm input-fields\" type=\"text\" value=\"Declined from author\"  hidden>\n" +
+                        "                   <button type=\"submit\" class=\"complited btn btn-sm btn-outline-secondary\">Decline</button>\n" +
                         "                  </form>\n" +
 
                         "              </div>\n" +
@@ -37,6 +40,17 @@
                         "          </div>\n" +
                         "        </div>\n" +
                         "      </div>")
+                    if(value.comment !== null) {
+                        $('.append-after-'+index).after(
+                        "<br><small class=\"p\">Comment: "+value.comment+"</small>\n"
+                        );
+                    }
+                    if(value.status === 'Accepted') {
+                        $('.changer-'+index).remove();
+                    }
+                    if(value.status === 'Declined from author') {
+                        $('.changer-'+index).remove();
+                    }
                 });
             }
         });
@@ -56,7 +70,7 @@
             },
             data: serializedData,
             success: function() {
-                $("#success-modal").modal("show");
+                $("#success-modal-change").modal("show");
             },
             error: function() {
                 $("#error-modal").modal("show");
@@ -75,7 +89,7 @@
             },
             data: serializedData,
             success: function() {
-                $("#success-modal").modal("show");
+                $("#success-modal-change").modal("show");
             },
             error: function() {
                 $("#error-modal").modal("show");

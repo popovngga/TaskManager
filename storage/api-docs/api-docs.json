@@ -1,0 +1,433 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Task Manager",
+        "description": "Task Manager",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "http://example.com/api",
+            "description": "Demo API Task Manager"
+        }
+    ],
+    "paths": {
+        "/api": {},
+        "/logout": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Logout",
+                "description": "Logout",
+                "operationId": "Logout",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "scalar": "Bearer"
+                    }
+                ]
+            }
+        },
+        "/current": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get current user information",
+                "description": "Returns user data",
+                "operationId": "getCurrentUser",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "scalar": "Bearer"
+                    }
+                ]
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users except me",
+                "description": "Returns all users data",
+                "operationId": "getAllUsersExceptMe",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": [
+                                    {
+                                        "id": 1,
+                                        "name": "Bob",
+                                        "email": "Fanger",
+                                        "created_at": "2020-09-16 18:47:59",
+                                        "updated_at": "2020-09-16 18:47:59"
+                                    },
+                                    {
+                                        "id": "number",
+                                        "name": "",
+                                        "email": "",
+                                        "created_at": "",
+                                        "updated_at": ""
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/tasks/change/{id}": {
+            "patch": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Change task status by id",
+                "description": "Returns changed task",
+                "operationId": "changeStatusOfTaskById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Task id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "New task status",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Task comment",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Task"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "scalar": "Bearer"
+                    }
+                ]
+            }
+        },
+        "/task/create": {
+            "post": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Create task",
+                "description": "Returns created task",
+                "operationId": "createTask",
+                "parameters": [
+                    {
+                        "name": "header",
+                        "in": "query",
+                        "description": "Task header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "description": "Task desctiption",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_executor_id",
+                        "in": "query",
+                        "description": "User executor id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "deadline",
+                        "in": "query",
+                        "description": "Task deadline",
+                        "required": true,
+                        "schema": {
+                            "type": "dateTime"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Task status",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "New task status",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Task"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "scalar": "Bearer"
+                    }
+                ]
+            }
+        },
+        "/author": {
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Get author tasks",
+                "description": "Returns author tasks",
+                "operationId": "getAuthorTasks",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Task"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "scalar": "Bearer"
+                    }
+                ]
+            }
+        },
+        "/executor": {
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Get executor tasks",
+                "description": "Returns executor tasks",
+                "operationId": "getExecutorTasks",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Task"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "scalar": "Bearer"
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Task": {
+                "required": [
+                    "header",
+                    "description",
+                    "status",
+                    "deadline",
+                    "user_executor_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "user_executor_id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "2"
+                    },
+                    "user_id": {
+                        "type": "bigInteger",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "header": {
+                        "type": "string",
+                        "example": "Example header"
+                    },
+                    "description": {
+                        "type": "longText",
+                        "example": "Example description"
+                    },
+                    "status": {
+                        "type": "string",
+                        "example": "Declined"
+                    },
+                    "deadline": {
+                        "type": "dateTime",
+                        "example": "2020-09-16 18:47:59"
+                    },
+                    "comment": {
+                        "type": "longText",
+                        "example": "Example comment"
+                    },
+                    "created_at": {
+                        "type": "dateTime",
+                        "example": "2020-09-16 18:47:59"
+                    },
+                    "updated_at": {
+                        "type": "dateTime",
+                        "example": "2020-09-16 18:47:59"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    },
+                    "user_executor": {
+                        "$ref": "#/components/schemas/User"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Task"
+                }
+            },
+            "User": {
+                "required": [
+                    "password",
+                    "email",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "email": {
+                        "description": "User unique email address",
+                        "type": "string",
+                        "format": "email",
+                        "readOnly": "true",
+                        "example": "user@gmail.com"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "example": "John"
+                    },
+                    "created_at": {
+                        "type": "dateTime",
+                        "example": "2020-09-16 18:47:59"
+                    },
+                    "updated_at": {
+                        "type": "dateTime",
+                        "example": "2020-09-16 18:47:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Users",
+            "description": "API Endpoints of Users"
+        },
+        {
+            "name": "Tasks",
+            "description": "API Endpoints of Tasks"
+        }
+    ],
+    "security": [
+        []
+    ]
+}

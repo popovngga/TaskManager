@@ -31,7 +31,7 @@
           "                  <form class=\"form-style user-response\" method=\"POST\" action=\"api/task/create\">\n" +
           "                    <input name=\"header\" class=\"form-control form-control-sm input-fields\" type=\"text\" placeholder=\"Header\" required>\n" +
           "                    <input name=\"description\" class=\"form-control form-control-sm input-fields\" type=\"text\" placeholder=\"Description\" required>\n" +
-          "                    <input name=\"status\" class=\"form-control form-control-sm input-fields\" type=\"text\" placeholder=\"Status\" required>\n" +
+          "                    <input hidden name=\"status\" class=\"form-control form-control-sm input-fields\" type=\"text\" value=\"Started\" placeholder=\"Status\" required>\n" +
           "                    <input name=\"deadline\" class=\"form-control form-control-sm input-fields\" type=\"date\" placeholder=\"Deadline\" required>\n" +
           "                    <input name=\"user_executor_id\" class=\"form-control form-control-sm input-fields\" type=\"text\" value=\""+value.id+"\" placeholder=\"Deadline\" hidden>\n" +
           "                    <button type=\"submit\" class=\"response btn btn-medium btn-outline-secondary button-custom\">\n" +

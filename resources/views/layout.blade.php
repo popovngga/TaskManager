@@ -44,6 +44,9 @@
     .button-custom {
         margin-top: 5px;
     }
+    .changer-color-accepted {
+        background: aqua;
+    }
 </style>
 <body class="align-middle">
 @yield('content')

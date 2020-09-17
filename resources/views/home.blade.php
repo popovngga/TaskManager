@@ -47,6 +47,11 @@
         <h4 class="alert-heading">Something went wrong!</h4>
     </div>
 </div>
+<div id="success-modal-change" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog alert alert-success" role="alert">
+        <h4 class="alert-heading">Successfully changed task status!</h4>
+    </div>
+</div>
 
 <div id="welcome-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog alert alert-primary" role="alert">
@@ -80,6 +85,9 @@
 
 <script>
     $(document).ready(function(){
+        if(localStorage.getItem('token') === null) {
+            $(location).attr('href', '/');
+        }
         $.ajax({
             type: "GET",
             beforeSend: function(request) {

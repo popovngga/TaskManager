@@ -23,22 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e35f91b-e3f2-48ec-99f2-8832add40c89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/cabinet/author.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cabinet/executor.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cabinet/users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TaskManager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TaskManager.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/pticagnom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/pticagnom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/TaskService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/TaskService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SocialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SocialController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/TaskRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/TaskRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Task.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Traits/TaskManagerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/TaskManagerTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_13_175710_create_tasks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_13_175710_create_tasks_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cabinet/author.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cabinet/author.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cabinet/executor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cabinet/executor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cabinet/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cabinet/users.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +229,9 @@
       <workItem from="1600029266580" duration="774000" />
       <workItem from="1600107486528" duration="34000" />
       <workItem from="1600187986563" duration="9879000" />
-      <workItem from="1600199916438" duration="2603000" />
+      <workItem from="1600199916438" duration="3214000" />
+      <workItem from="1600273529285" duration="19352000" />
+      <workItem from="1600366627648" duration="2854000" />
     </task>
     <servers />
   </component>
@@ -266,10 +267,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="506" y="160" width="333" height="393" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1600020602683" />
-    <state x="416" y="121" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600025580374">
+    <state x="416" y="121" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600367055329">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="416" y="121" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1600025580374" />
+    <state x="416" y="121" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1600367055329" />
     <state x="466" y="121" width="424" height="478" key="FileChooserDialogImpl" timestamp="1600004777129">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
