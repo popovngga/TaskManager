@@ -31,7 +31,7 @@ class SocialController extends Controller
                 return view('home', compact('token'));
             }
         } catch (\Exception $e) {
-            return redirect('/');
+            echo $e;
         }
     }
 
